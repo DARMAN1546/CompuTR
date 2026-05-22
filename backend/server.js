@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const fs = require('fs');
 const path = require('path');
 
 const app = express();
@@ -155,10 +154,11 @@ app.get('/ventas', (req, res) => {
 // Estado básico del backend / fallback cuando no se incluye frontend
 app.get('/', (req, res) => {
   const frontendIndexPath = path.join(__dirname, '../frontend', 'index.html');
-  if (fs.existsSync(frontendIndexPath)) {
-    return res.sendFile(frontendIndexPath);
-  }
-  res.json({ mensaje: 'API de TechStore activa' });
+  res.sendFile(frontendIndexPath, (err) => {
+    if (err) {
+      res.status(200).json({ mensaje: 'API de TechStore activa' });
+    }
+  });
 });
 
 // Resetear datos
