@@ -28,7 +28,7 @@ Editar `frontend/config.js`:
 
 ```js
 window.APP_CONFIG = {
-  apiBaseUrl: 'https://TU-BACKEND.amazonaws.com'
+  apiBaseUrl: 'https://YOUR-BACKEND.amazonaws.com'
 };
 ```
 

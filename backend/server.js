@@ -151,16 +151,6 @@ app.get('/ventas', (req, res) => {
   res.json(ventas);
 });
 
-// Estado básico del backend / fallback cuando no se incluye frontend
-app.get('/', (req, res) => {
-  const frontendIndexPath = path.join(__dirname, '../frontend', 'index.html');
-  res.sendFile(frontendIndexPath, (err) => {
-    if (err) {
-      res.status(200).json({ mensaje: 'API de TechStore activa' });
-    }
-  });
-});
-
 // Resetear datos
 app.post('/reset', (req, res) => {
   computadores.forEach(c => {

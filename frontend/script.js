@@ -3,6 +3,7 @@ const API = (() => {
     return 'http://localhost:3001';
   }
   const configuredUrl = window.APP_CONFIG?.apiBaseUrl || '';
+  if (!configuredUrl) return '';
   return configuredUrl.replace(/\/$/, '');
 })();
 
