@@ -1,4 +1,11 @@
-const API = window.location.hostname === 'localhost' ? 'http://localhost:3001' : '';
+const API = (() => {
+  if (window.location.hostname === 'localhost') {
+    return 'http://localhost:3001';
+  }
+  // Si está vacío, fetch usa mismas rutas relativas (mismo origen).
+  const configuredUrl = window.APP_CONFIG?.apiBaseUrl ?? '';
+  return configuredUrl.replace(/\/$/, '');
+})();
 
 let computadorSeleccionado = null;
 

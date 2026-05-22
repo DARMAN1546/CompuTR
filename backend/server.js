@@ -151,11 +151,6 @@ app.get('/ventas', (req, res) => {
   res.json(ventas);
 });
 
-// Servir frontend
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend', 'index.html'));
-});
-
 // Resetear datos
 app.post('/reset', (req, res) => {
   computadores.forEach(c => {
