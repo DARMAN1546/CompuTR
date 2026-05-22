@@ -2,8 +2,7 @@ const API = (() => {
   if (window.location.hostname === 'localhost') {
     return 'http://localhost:3001';
   }
-  const configuredUrl = window.APP_CONFIG?.apiBaseUrl || '';
-  if (!configuredUrl) return '';
+  const configuredUrl = window.APP_CONFIG?.apiBaseUrl ?? '';
   return configuredUrl.replace(/\/$/, '');
 })();
 
