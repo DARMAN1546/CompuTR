@@ -1,4 +1,4 @@
-const API = 'http://localhost:3001';
+const API = window.location.hostname === 'localhost' ? 'http://localhost:3001' : '';
 
 let computadorSeleccionado = null;
 
@@ -47,7 +47,7 @@ async function cargarComputadores() {
       contenedor.appendChild(tarjeta);
     });
   } catch {
-    contenedor.innerHTML = '<p class="vacio">Error al conectar con el servidor. Verifica que el backend este corriendo en el puerto 3001.</p>';
+    contenedor.innerHTML = '<p class="vacio">Error al conectar con el servidor. Intenta recargar la pagina.</p>';
   }
 }
 
