@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechStore - Venta de Computadores</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <h1>TechStore</h1>
+      <p>Los mejores computadores al mejor precio</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Catálogo -->
+    <section id="catalogo">
+      <h2>Nuestros Computadores</h2>
+      <div id="lista-computadores" class="grid-computadores">
+        <p class="cargando">Cargando productos...</p>
+      </div>
+    </section>
+
+    <!-- Modal de compra -->
+    <div id="modal-overlay" class="oculto">
+      <div class="modal">
+        <button class="cerrar-modal" onclick="cerrarModal()">&#10005;</button>
+        <h3 id="modal-titulo">Completar compra</h3>
+        <div id="modal-resumen" class="resumen-producto"></div>
+
+        <form id="form-compra" onsubmit="realizarCompra(event)">
+          <input type="hidden" id="comp-id" />
+
+          <label for="nombre">Nombre completo *</label>
+          <input type="text" id="nombre" placeholder="Tu nombre" required />
+
+          <label for="email">Correo electrónico *</label>
+          <input type="email" id="email" placeholder="correo@ejemplo.com" required />
+
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" placeholder="300 000 0000" />
+
+          <label for="direccion">Dirección de entrega</label>
+          <input type="text" id="direccion" placeholder="Calle 123 # 45-67" />
+
+          <label for="cantidad">Cantidad *</label>
+          <input type="number" id="cantidad" min="1" max="5" value="1" required />
+
+          <div id="precio-total" class="precio-total"></div>
+
+          <button type="submit" class="btn-comprar">Confirmar compra</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Sección de ventas realizadas -->
+    <section id="seccion-ventas">
+      <div class="ventas-header">
+        <h2>Ventas Realizadas</h2>
+        <div class="ventas-acciones">
+          <button class="btn-secundario" onclick="cargarVentas()">Actualizar</button>
+          <button class="btn-peligro" onclick="resetearDatos()">Resetear datos</button>
+        </div>
+      </div>
+      <div id="lista-ventas">
+        <p class="vacio">No hay ventas registradas aún.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Notificación -->
+  <div id="notificacion" class="notificacion oculto"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
